@@ -1,20 +1,19 @@
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
+
 /**
- * Strategy for game board that uses black ellipses for Buckets.
+ * 6/1/2018 20:27 PST
  * @author Charles Houser
  */
-public class BlackEllipseStrategy implements StrategyInterface {
-    /**
-     * Used to apply a display strategy to a Bucket; Draws black ellipses as shape for Buckets.
-     * @param g2 graphics context
-     * @param d dimensions of Bucket shape
-     */
-    public void applyStrat( Graphics2D g2, Dimension d ) {
-        g2.setColor( Color.BLACK );
-        g2.draw( new Ellipse2D.Double( 0, 0, d.getWidth(), d.getHeight() ) );
+
+public class BlackEllipseStrategy implements Strategy {
+    public Color getColor() {
+        return Color.BLACK;
+    }
+    
+    public Shape getShape( int x, int y, int w, int h ) {
+        return new Ellipse2D.Double( x, y , w , h );
     }
 }

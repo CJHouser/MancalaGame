@@ -1,20 +1,18 @@
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
+
 /**
- * Strategy for game board that uses red rectangles for Buckets.
+ * 6/1/2018 20:27 PST
  * @author Charles Houser
  */
-public class RedRectangleStrategy implements StrategyInterface {
-    /**
-     * Used to apply a display strategy to a Bucket; Draws red rectangles for shape of Buckets
-     * @param g2 graphics context
-     * @param d dimensions of Bucket shape
-     */
-    public void applyStrat( Graphics2D g2, Dimension d ) {
-        g2.setColor( Color.RED );
-        g2.draw( new Rectangle2D.Double( 0, 0, d.getWidth(), d.getHeight() ) );
+public class RedRectangleStrategy implements Strategy {
+    public Color getColor() {
+        return Color.RED;
+    }
+    
+    public Shape getShape( int x, int y, int w, int h ) {
+        return new Rectangle2D.Double( x, y , w , h );
     }
 }
